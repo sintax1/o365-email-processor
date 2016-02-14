@@ -2,9 +2,9 @@
  o365 Email Processor
 =========================
 
-This project provides a service for polling email from Office 365 (via API 1.0)
- at a regular intervale. Each email is stored in a database and sent to user 
- defined actions for processing.
+This project provides a service for polling email from Office 365 \
+ (via API 1.0) at a regular intervale. Each email is stored in a database and \
+  sent to user defined actions for processing.
 
  A couple use cases:
 
@@ -54,8 +54,8 @@ Instructions
 
     sudo apt-get install postgresql-9.4
 
-#. Configure the database. Replace ``[DB USER]`` and ``[DB PASSWORD]`` with 
-    your settings::
+#. Configure the database. Replace ``[DB USER]`` and ``[DB PASSWORD]`` with \
+ your settings::
 
     sudo su - postgres
     psql
