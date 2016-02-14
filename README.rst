@@ -21,7 +21,7 @@ running.
 Instructions
 ------------
 
-#. Clone the o365 email processor project:
+#. Download this project:
 
     Using git::
 

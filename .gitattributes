@@ -1,1 +1,3 @@
-*    filter=classify
+*    filter=root9b
+*    filter=dbpassword
+*    filter=dbuser
