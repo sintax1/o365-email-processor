@@ -12,7 +12,7 @@ SECRET_KEY = '>G\xc7\xb1\xac\x80\xa8mh\xe0\x906{\x131pc0K\xb3\x0c\x1b\xa1\x8f'
 #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 #SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
 SQLALCHEMY_DATABASE_URI = \
-    'postgresql://<db user>:9Y9+R.s9{bF7@f=C@localhost/email_processor'
+    'postgresql://<db user>:dbpassword@localhost/email_processor'
 
 # Flask-WTF flag for CSRF
 CSRF_ENABLED = True
