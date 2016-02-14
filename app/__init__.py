@@ -26,7 +26,7 @@ if db.session.query(Action).count() < 1:
 
     python_method = ''.join([
         'def action(email):\n',
-        '   from O365 import Message, Attachment\n',
+        '   from O365 import (Message, Attachment)\n',
         '   from textextractor import TextExtractor\n',
         '   from email_client import Client\n',
         '   import base64\n',
