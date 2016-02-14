@@ -2,13 +2,28 @@
  o365 Email Processor
 =========================
 
+This project provides a service for polling email from Office 365 (via API 1.0)
+ at a regular intervale. Each email is stored in a database and sent to user 
+ defined actions for processing.
+
+ A couple use cases:
+
+ * Preventing malware from running that is embedded in document attachments 
+   by extracting and forwarding on the text only.
+
+ * Sending every attachment to Cuckoo's scanner via API before forwarding on
+   the attachment.
+
 Project Setup
 =============
+
+Follow the instructions below to get the Office 365 email processor up and 
+running.
 
 Instructions
 ------------
 
-#. Clone the o365 email processor project::
+#. Clone the o365 email processor project:
 
     Using git::
 
