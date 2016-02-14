@@ -11,6 +11,7 @@ graft tests
 
 # Exclude any compile Python files (most likely grafted by tests/ directory).
 global-exclude *.pyc
+global-exclude *.log
 
 # Setup-related things
 include pavement.py
@@ -18,3 +19,7 @@ include requirements-dev.txt
 include requirements.txt
 include setup.py
 include tox.ini
+
+recursive-include app/templates *
+recursive-include app/static *
+
