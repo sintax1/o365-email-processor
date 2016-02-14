@@ -5,8 +5,7 @@ from flask_appbuilder.security.manager import AUTH_DB
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# TODO: Remove this
-DEBUG = True
+DEBUG = False
 
 # Your App secret key
 SECRET_KEY = '>G\xc7\xb1\xac\x80\xa8mh\xe0\x906{\x131pc0K\xb3\x0c\x1b\xa1\x8f'
