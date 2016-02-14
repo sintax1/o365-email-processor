@@ -257,7 +257,12 @@ setup_dict = dict(
     ],
     packages=find_packages(exclude=(TESTS_DIRECTORY, ENV_DIRECTORY)),
     install_requires=[
-        # your module dependencies
+        "flask",
+        "flask-appbuilder",
+        "psycopg2",
+        "docx",
+        "pdfminer",
+        "magic"
     ] + python_version_specific_requires,
     # Allow tests to be run with `python setup.py test'.
     tests_require=[

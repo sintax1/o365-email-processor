@@ -39,3 +39,6 @@ pip-log.txt
 
 ## Env
 /env
+
+## Debug logs
+o365.log

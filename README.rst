@@ -1,5 +1,5 @@
 =========================
- Python Project Template
+ o365 Email Processor
 =========================
 
 Project Setup
