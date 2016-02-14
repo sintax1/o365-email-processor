@@ -1,0 +1,5 @@
+Run `sphinx-apidoc -o . ../../o365_email_processor' in this directory.
+
+This will generate `modules.rst' and `o365_email_processor.rst'.
+
+Then include `modules.rst' in your `index.rst' file.
