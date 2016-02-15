@@ -63,28 +63,28 @@ class TextExtractor:
                 cmd = ['antiword', temp_file_path]
                 p = Popen(cmd, stdout=PIPE)
                 stdout, stderr = p.communicate()
-                return stdout.decode('ascii', 'ignore')
+                return ("%s.txt" % file_name, stdout.decode('ascii', 'ignore'))
             elif file_name[-5:] == ".docx":
                 document = opendocx(temp_file_path)
                 paratextlist = getdocumenttext(document)
                 newparatextlist = []
                 for paratext in paratextlist:
                     newparatextlist.append(paratext.encode("utf-8"))
-                return '\n\n'.join(newparatextlist)
+                return ("%s.txt" % file_name, '\n\n'.join(newparatextlist))
 
         # ODT
         elif 'application/vnd.oasis.opendocument.text' in filetype:
                 cmd = ['odt2txt', temp_file_path]
                 p = Popen(cmd, stdout=PIPE)
                 stdout, stderr = p.communicate()
-                return stdout.decode('ascii', 'ignore')
+                return ("%s.txt" % file_name, stdout.decode('ascii', 'ignore'))
 
         # PDF
         elif 'application/pdf' in filetype:
-            return self.extractPDF(temp_file_path)
+            return ("%s.txt" % file_name, self.extractPDF(temp_file_path))
 
         else:
-            return None
+            return (file_name, file_buffer)
 
     def save_output(self, filename, output):
         if len(output) <= 0:
