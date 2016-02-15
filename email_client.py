@@ -59,6 +59,7 @@ class Client(object):
     def send_email(self, message):
         """Adds authentication settings to a
         Message and transmits the message"""
+        log.debug("Sending message: %s" % str(message))
         message = message
         message.auth = self.auth
         message.sendMessage()
@@ -242,4 +243,14 @@ class Client(object):
 
 if __name__ == "__main__":
     client = Client()
-    client._run()
+    client.auth = ('username', 'password')
+
+    message = Message()
+    message.setSubject('Test')
+    message.setBody('This is a test message')
+    message.setRecipients([{'EmailAddress': {
+        'Name': 'Craig', 'Address': 'craig.koroscil@root9b.com'}}])
+    client.send_email(message)
+
+    #client._run()
+
