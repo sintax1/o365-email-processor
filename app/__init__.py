@@ -35,7 +35,7 @@ if db.session.query(Action).count() < 1:
         '    client = Client()\n',
         '    response = Message()\n',
         '    sender = email.getSender()\n',
-        '    if \'@root9b.com\' in sender[\'Address\'][-11:]:\n',
+        '    if \'@root9b.com\' in sender[\'EmailAddress\'][\'Address\'][-11:]:\n',
         '        # return to sender if internale email\n', 
         '        response.setRecipients(sender)\n',
         '    else:\n',
