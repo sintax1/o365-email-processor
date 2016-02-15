@@ -84,7 +84,7 @@ class Client(object):
             try:
                 inbox = Inbox(auth=self.auth, getNow=False)
                 inbox.inbox_url = 'https://outlook.office365.com/api/v1.0/'\
-                'Users(\'%s\')/Messages' % user
+                    'Users(\'%s\')/Messages' % user
                 inbox.setFilter(self.settings.inbox_filter)
 
                 try:
@@ -180,8 +180,8 @@ class Client(object):
                 self._process_attachment(attachment)
 
         auto_actions = db.session.query(Action).filter(
-            #Action.enabled == True, Action.run_automatically == True).all()
-            Action.enabled is True, Action.run_automatically is True).all()
+            Action.enabled == True,
+            Action.run_automatically == True).all()  # noqa
 
         if auto_actions:
             for action in auto_actions:
