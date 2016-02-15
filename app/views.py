@@ -1,22 +1,14 @@
-from flask import (
-    render_template, send_file)
-from flask.ext.appbuilder.models.sqla.interface import SQLAInterface
-from flask.ext.appbuilder import (
-    ModelView, expose)
-from wtforms import (
-    PasswordField, validators)
-from app import (
-    appbuilder, db)
 import StringIO
 import base64
 
-from .models import (
-    Email, Attachment, Action, AppSettings)
+from flask.ext.appbuilder.models.sqla.interface import SQLAInterface
+from flask.ext.appbuilder import (ModelView, expose)
+from flask.ext.appbuilder.actions import action
+from wtforms import (PasswordField, validators)
+from flask import (render_template, send_file, redirect)
+from app import (appbuilder, db)
 
-try:
-    from email_client import Client
-except:
-    pass
+from .models import (Email, Attachment, Action, AppSettings)
 
 
 class AttachmentModelView(ModelView):
@@ -63,6 +55,16 @@ class EmailModelView(ModelView):
             'body', 'attachments_downloadable']}),
         ('Analyst Info', {'fields': ['analyst_notes']})
     ]
+
+    @action("muldelete", "Delete", "Delete all Really?", "fa-trash")
+    def muldelete(self, items):
+        if isinstance(items, list):
+            self.datamodel.delete_all(items)
+            self.update_redirect()
+        else:
+            self.datamodel.delete(items)
+
+        return redirect(self.get_redirect())
 
 
 class ActionModelView(ModelView):
@@ -156,9 +158,10 @@ class AppSettingsModelView(ModelView):
 
     def post_update(self, settings):
         if settings.enable_polling:
+            from email_client import Client
             self.client = Client()
             self.client.start()
-        else:
+        elif 'client' in self.__dict__:
             self.client.exit()
 
 

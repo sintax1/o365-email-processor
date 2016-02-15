@@ -78,30 +78,32 @@ class Client(object):
         store each message in the database, then pass each message
         to the registered Actions.
         """
-        try:
-            # TODO: check all email accounts from
-            # self.settings.accounts_to_check
-            inbox = Inbox(auth=self.auth, getNow=False)
 
-            #inbox.setFilter("IsRead eq false and HasAttachments eq true")
-            inbox.setFilter(self.settings.inbox_filter)
+        for user in self.settings.accounts_to_check.split(','):
 
             try:
-                inbox.getMessages()
-            except ValueError:
-                log.debug("No valid json object received")
+                inbox = Inbox(auth=self.auth, getNow=False)
+                inbox.inbox_url = 'https://outlook.office365.com/api/v1.0/'\
+                'Users(\'%s\')/Messages' % user
+                inbox.setFilter(self.settings.inbox_filter)
 
-            log.debug("number of messages received: %s" % len(inbox.messages))
+                try:
+                    inbox.getMessages()
+                except ValueError:
+                    log.debug("No valid json object received")
 
-            log.debug("messages: {0}".format(len(inbox.messages)))
-            for message in inbox.messages:
-                self._process_message(message)
+                log.debug(
+                    "number of messages received: %s" %
+                    len(inbox.messages))
 
-        except Exception:
-            error = sys.exc_info()
-            log.error(error)
-            self.report_error(error)
-            pass
+                log.debug("messages: {0}".format(len(inbox.messages)))
+                for message in inbox.messages:
+                    self._process_message(message)
+            except Exception:
+                error = sys.exc_info()
+                log.error(error)
+                self.report_error(error)
+                pass
 
     def _extract_email_info(self, message):
         """Copy email contents into Email object for database storage"""
@@ -197,7 +199,7 @@ class Client(object):
                 thread.daemon = True
                 thread.start()
                 thread.join()
-        message.markAsRead()
+        #message.markAsRead()
 
         return True
 

@@ -1,9 +1,8 @@
-from flask import (
-    Markup, url_for, redirect)
+from flask import (Markup, url_for)
+#from flask import redirect
 from flask.ext.appbuilder import Model
 from flask.ext.appbuilder.models.mixins import FileColumn
 from flask.ext.appbuilder.models.decorators import renders
-from flask.ext.appbuilder.actions import action
 from sqlalchemy import (
     Column, Integer, String, ForeignKey, Text, DateTime, Table, Boolean)
 from sqlalchemy.orm import relationship
@@ -14,7 +13,8 @@ class EmailAddress(Model):
     address = Column(String(64), nullable=False)
     name = Column(String(64), nullable=True)
 
-    email_id = Column(Integer, ForeignKey('email.id'))
+    email_id = Column(Integer, ForeignKey(
+        'email.id', ondelete='SET NULL'), nullable=True)
     email = relationship("Email")
 
     def __repr__(self):
@@ -102,15 +102,6 @@ class Email(Model):
                 links.append(
                     '<a href="' + url + '">' + attachment.filename + '</a>')
             return Markup(",".join(links))
-
-    @action("muldelete", "Delete", "Delete all Really?", "fa-trash")
-    def muldelete(self, items):
-        if isinstance(items, list):
-            self.datamodel.delete_all(items)
-            self.update_redirect()
-        else:
-            self.datamodel.delete(items)
-        return redirect(self.get_redirect())
 
     def __repr__(self):
         return 'From:%s, To:%s, Subject: %s' % (
