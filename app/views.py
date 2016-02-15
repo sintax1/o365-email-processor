@@ -107,23 +107,20 @@ class AppSettingsModelView(ModelView):
             validators=[validators.Required()])}
 
     description_columns = {
-        'accounts_to_check': (
-            'Comma seperated list of email accounts that ',
-            'the automated email poller will check.',
-            '  Note: email poller account must have permissions to view those',
-            'shared mailboxes.'),
-        'inbox_filter': (
-            'MS API filter applied to emails to narrow the list',
-            'for processing.',
-            'Reference: https://msdn.microsoft.com/en-us/office/office365/',
-            'api/complex-types-for-mail-contacts-calendar'),
+        'accounts_to_check': 'Comma seperated list of email accounts that ' \
+            'the automated email poller will check.' \
+            ' Note: email poller account must have permissions to view those' \
+            'shared mailboxes.',
+        'inbox_filter': 'MS API filter applied to emails to narrow the list' \
+            'for processing.' \
+            'Reference: https://msdn.microsoft.com/en-us/office/office365/' \
+            'api/complex-types-for-mail-contacts-calendar',
         'email_polling_interval': 'How often to poll emails (seconds)',
-        'enable_polling': (
-            'If checked, automatic emails will be automatically ',
-            'polled.'),
-        'enable_auto_processing': (
-            'If checked, each email collected will be ',
-            'automatically processed by all registered and enabled actions.'),
+        'enable_polling': 'If checked, automatic emails will be ' \
+            'automatically polled.',
+        'enable_auto_processing': 'If checked, each email collected will ' \
+            'be automatically processed by all registered and enabled ' \
+            'actions.',
         'service_account_username': 'Username used to login to email server',
         'service_account_password': 'Password used to login to email server',
         'admin_email_addresses': 'System alerts and errors will be sent here'
