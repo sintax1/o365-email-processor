@@ -82,6 +82,9 @@ Instructions
 
     http://<server ip>:8080/login/
 
+#. *(Optional, but recommended)* Deploy in a production environment: http://flask.pocoo.org/docs/0.10/deploying/
+
+
 Licenses
 ========
 
