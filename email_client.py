@@ -86,7 +86,12 @@ class Client(object):
                 inbox = Inbox(auth=self.auth, getNow=False)
                 inbox.inbox_url = 'https://outlook.office365.com/api/v1.0/'\
                     'Users(\'%s\')/Messages' % user
-                inbox.setFilter(self.settings.inbox_filter)
+                # Filter out emails from the service account to prevent 
+                # email sending loops
+                filter = "%s and From/EmailAddress/Address ne '%s'" % (
+                    self.settings.inbox_filter, 
+                    self.settings.service_account_username)
+                inbox.setFilter(filter)
 
                 try:
                     inbox.getMessages()
@@ -200,7 +205,7 @@ class Client(object):
                 thread.daemon = True
                 thread.start()
                 thread.join()
-        message.markAsRead()
+        #message.markAsRead()
 
         return True
 
