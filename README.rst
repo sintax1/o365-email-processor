@@ -32,7 +32,7 @@ Instructions
 
         wget https://github.com/sintax1/o365-email-processor/archive/master.zip
         unzip master.zip
-        cd o365-email-processor
+        cd o365-email-processor-master
 
 #. Install system requirements::
 
