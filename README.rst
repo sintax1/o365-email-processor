@@ -6,11 +6,9 @@ This project provides a service for polling email from Office 365 (via API 1.0) 
 
  A couple use cases:
 
- * Preventing malware from running that is embedded in document attachments 
-   by extracting and forwarding on the text only.
+ * Preventing malware from running which is embedded within email attachments (pdf, doc, odt) by extracting and forwarding on the text only.
 
- * Sending every attachment to Cuckoo's scanner via API before forwarding on
-   the attachment.
+ * Sending email attachments to Cuckoo's scanner via an API before forwarding on the attachment.
 
 Project Setup
 =============
