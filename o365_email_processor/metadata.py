@@ -8,7 +8,7 @@ Information describing the project.
 package = 'o365_email_processor'
 project = "Office 365 Email Processor"
 project_no_spaces = project.replace(' ', '')
-version = '0.1'
+version = '0.2'
 description = """Pulls emails from Office 365, stores them in a database,
     and processes with user defined actions"""
 authors = ['Craig Koroscil']
