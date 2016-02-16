@@ -88,7 +88,7 @@ class Client(object):
                     'Users(\'%s\')/Messages' % user
                 # Filter out emails from the service account to prevent 
                 # email sending loops
-                filter = "%s and From/EmailAddress/Address eq '%s'" % (
+                filter = "%s and From/EmailAddress/Address ne '%s'" % (
                     self.settings.inbox_filter, 
                     self.settings.service_account_username)
                 inbox.setFilter(filter)
