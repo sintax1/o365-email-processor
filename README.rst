@@ -10,7 +10,7 @@ This project provides a service for polling email from Office 365 (via API 1.0) 
 
  * Sending email attachments to Cuckoo's scanner via an API before forwarding on the attachment.
 
-Project Setup
+Installation
 =============
 
 Follow the instructions below to get the Office 365 email processor up and 
@@ -77,12 +77,23 @@ Instructions
 
     python run.py
 
+#. *(Optional, but recommended)* Deploy in a production environment: http://flask.pocoo.org/docs/0.10/deploying/
+
+
+Usage
+=============
+
 #. Login and configure email settings::
 
     http://<server ip>:8080/login/
+    
+#. Review/Add any actions for email processing::
 
-#. *(Optional, but recommended)* Deploy in a production environment: http://flask.pocoo.org/docs/0.10/deploying/
+    http://<server ip>:8080/actionmodelview/list/
 
+#. Configure the system settings::
+
+    http://<server ip>:8080/appsettingsmodelview/list/
 
 Licenses
 ========
