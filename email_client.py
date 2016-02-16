@@ -205,7 +205,7 @@ class Client(object):
                 thread.daemon = True
                 thread.start()
                 thread.join()
-        #message.markAsRead()
+        message.markAsRead()
 
         return True
 
