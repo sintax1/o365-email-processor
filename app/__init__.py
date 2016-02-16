@@ -2,18 +2,17 @@ import logging
 from flask import Flask
 from flask.ext.appbuilder import SQLA, AppBuilder
 from app.models import AppSettings, Action
+from app.index import AppIndexView
 
-"""
- Logging configuration
-"""
-
+# Logging configuration
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(logging.DEBUG)
 
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLA(app)
-appbuilder = AppBuilder(app, db.session)
+appbuilder = AppBuilder(app, db.session, indexview=AppIndexView)
+
 
 # Load initial data
 if db.session.query(AppSettings).count() < 1:
@@ -94,7 +93,6 @@ processed by an automated text extractor',
         '%s""" % (',
         'sender_name, sender_email, recipients_str, subject, original_body)',
         '    response.setBody(body_text)',
-        '    print response.json',
         '    client.send_email(response)',
         '    return True'])
     # TODO: set ReplyTo as original sender. Not supported is O365 module
