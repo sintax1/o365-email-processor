@@ -49,7 +49,7 @@ Instructions
 
 #. Install database backend::
 
-    sudo apt-get install postgresql-9.4
+    sudo apt-get install postgresql-9.3
 
 #. Configure the database. Replace ``[DB USER]`` and ``[DB PASSWORD]`` with your settings::
 
