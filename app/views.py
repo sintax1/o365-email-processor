@@ -76,6 +76,19 @@ class ActionModelView(ModelView):
         "   return True" \
         "}" \
 
+    description_columns = {
+        'name': 'A simple name for reference',
+        'enabled': 'If checked, this action can be used for processing emails',
+        'run_automatically': (
+            'If checked (and enabled above), this action will be '
+            'automatically applied to every email processed'),
+        'python_method': (
+            'The action to be performed.'
+            'Requirements: The method name must be \'action\'.'
+            'The method must only take one argument (the email object).'
+            'The method must return True upon success. False otherwise.'),
+    }
+
     label_columns = {
         'run_automatically': 'Automatic',
         'python_method': 'Python'}
