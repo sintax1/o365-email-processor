@@ -34,11 +34,12 @@ Instructions
 
 #. Install system requirements::
 
-    sudo apt-get install virtualenv antiword odt2txt libpq-dev python-dev gcc \
+    sudo apt-get install antiword odt2txt libpq-dev python-dev gcc \
         libjpeg-dev libxml2-dev libxslt-dev
 
 #. Create a virtual environment::
 
+    sudo pip install virtualenv
     virtualenv env
     source env/bin/activate
 
