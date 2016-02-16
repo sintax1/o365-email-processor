@@ -263,7 +263,8 @@ setup_dict = dict(
         "docx",
         "pdfminer",
         "python-magic",
-        "O365"
+        "O365",
+        "html2text"
     ] + python_version_specific_requires,
     # Allow tests to be run with `python setup.py test'.
     tests_require=[
