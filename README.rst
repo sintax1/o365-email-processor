@@ -87,27 +87,27 @@ Usage
 
     http://<server ip>:8080/login/
 
-![Alt text](https://cloud.githubusercontent.com/assets/6936112/13087819/50bc2db4-d4af-11e5-82c2-2efd1ed0475d.png "Welcome")
-![Alt text](https://cloud.githubusercontent.com/assets/6936112/13087829/5526fa00-d4af-11e5-8140-9d5df1d33785.png "Login")
+![Screenshot](https://cloud.githubusercontent.com/assets/6936112/13087819/50bc2db4-d4af-11e5-82c2-2efd1ed0475d.png "Welcome")
+![Screenshot](https://cloud.githubusercontent.com/assets/6936112/13087829/5526fa00-d4af-11e5-8140-9d5df1d33785.png "Login")
     
 #. Review/Add any actions for email processing::
 
     http://<server ip>:8080/actionmodelview/list/
 
-![Alt text](https://cloud.githubusercontent.com/assets/6936112/13087828/550e78fe-d4af-11e5-8ad5-038b9a505c7b.png "Actions")
-![Alt text](https://cloud.githubusercontent.com/assets/6936112/13087827/54f2f3e0-d4af-11e5-927e-0609a570b14c.png "Text Extraction Action")
+![Screenshot](https://cloud.githubusercontent.com/assets/6936112/13087828/550e78fe-d4af-11e5-8ad5-038b9a505c7b.png "Actions")
+![Screenshot](https://cloud.githubusercontent.com/assets/6936112/13087827/54f2f3e0-d4af-11e5-927e-0609a570b14c.png "Text Extraction Action")
 
 #. Configure the system settings::
 
     http://<server ip>:8080/appsettingsmodelview/list/
 
-![Alt text](https://cloud.githubusercontent.com/assets/6936112/13087825/54be0b4e-d4af-11e5-8650-5d82056c6039.png "Settings")
+![Screenshot](https://cloud.githubusercontent.com/assets/6936112/13087825/54be0b4e-d4af-11e5-8650-5d82056c6039.png "Settings")
 
 #. Query/Analyze emails in the database::
 
     http://<server ip>:8080/emailmodelview/list/
 
-![Alt text](https://cloud.githubusercontent.com/assets/6936112/13087826/54d78fc4-d4af-11e5-8229-9b0f76f71f80.png "Emails")
+![Screenshot](https://cloud.githubusercontent.com/assets/6936112/13087826/54d78fc4-d4af-11e5-8229-9b0f76f71f80.png "Emails")
 
 
 Issues
