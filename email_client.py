@@ -5,6 +5,7 @@ import logging
 import fcntl
 import sys
 import imp
+import re
 
 from datetime import datetime
 from app import db
@@ -80,7 +81,8 @@ class Client(object):
         to the registered Actions.
         """
 
-        for user in self.settings.accounts_to_check.split(','):
+        email_list = re.split(r'[, ]*', self.settings.accounts_to_check)
+        for user in email_list:
 
             try:
                 inbox = Inbox(auth=self.auth, getNow=False)
