@@ -239,6 +239,12 @@ class Client(object):
         """Start automatically checking messages
         at specified interval forever"""
         log.debug("Starting main loop")
+
+        if self.main_thread and self.main_thread.isAlive():
+            # Stop the thread if it's already running
+            log.debug("main loop already running")
+            self.stop()
+
         self.main_thread = threading.Thread(target=self._run)
         self.main_thread.start()
 
